@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="formulario.css" media="screen">
+    <title>Formulário de Cadastro</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="form-image">
+            <img src="img/img01.png">
+        </div>
+
+        <div class="form">
+            <form class="formulario" action="formulario.php" method="POST">
+                <div class="form-header">
+                  <div class="title">
+                    <h1>Cadastre-se</h1>
+                  </div>  
+                  <div class="login-button"> 
+                    <button> <a href="#"> Entrar </a></button>
+                  </div>
+                </div>
+
+                <div class="input-group">
+                    <div class="input-box">
+                        <label for="name">Nome Completo</label>
+                        <input type="text" id="name" name="name" placeholder="Digite seu nome completo" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="email">E-mail</label>
+                        <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep" name="cep" placeholder="Digite seu CEP" maxlength="8" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="city">Cidade</label>
+                        <input type="text" id="city" name="city" placeholder="Digite sua cidade" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="register">Matrícula</label>
+                        <input type="number" id="register" name="register" placeholder="Digite sua matrícula" required>
+                    </div>
+
+                    <div class="input-box">
+                        <label for="course">Curso Matriculado</label>
+                        <select id="course" name="course" required>
+                            <option selected disabled value="">Selecione seu curso</option>
+                            <option value="ADS">Análise e Desenvolvimento de Sistemas</option>
+                            <option value="ADM">Administração</option>
+                            <option value="PEDAGOGIA">Pedagogia</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="interest-inputs">
+                    <div class="interest-title">
+                        <h6>Interesses Específicos</h6>
+                    </div>
+
+                    <div class="interest-group">
+
+                        <div class="interest-input">
+                            <input type="checkbox" id="interest1" name="interest[]" value="Estágios">
+                            <label for="interest1"> Estágios </label>
+                        </div>
+
+                        <div class="interest-input">
+                            <input type="checkbox" id="interest2" name="interest[]" value="Eventos">
+                            <label for="interest2"> Eventos </label>
+                        </div>
+
+                        <div class="interest-input">
+                            <input type="checkbox" id="interest3" name="interest[]" value="Notícias do Curso">
+                            <label for="interest3"> Notícias do Curso </label>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="send-button">
+                    <button id="botao-enviar-form" type="submit" name="submit" value="Enviar"> <a href="#"> Enviar </a> </button>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        function validarForm() {
+            var interessesSelecionados = document.querySelectorAll('input[name="interest[]"]:checked').length;
+    
+            if (interessesSelecionados === 0) {
+                alert("Por favor, escolha pelo menos um interesse.");
+                return false;
+            }
+            return true;
+        }
+
+        var VigiaBotao = document.getElementById("botao-enviar-form");
+        VigiaBotao.addEventListener("click", validarForm);
+
+    </script>
+</body>
+
+</html>
